@@ -1,39 +1,22 @@
-// import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  // useParams
+  Redirect
 } from "react-router-dom";
 
-import { Child } from "./components/children"
+import Page from "./routes/pagesRouter"
+import Navbar from "./components/navbar"
 
 export default function ParamsExample() {
   return (
     <Router>
-      <div>
-        <h2>Accounts</h2>
-
-        <ul>
-          <li>
-            <Link to="/netflix">Netflix</Link>
-          </li>
-          <li>
-            <Link to="/zillow-group">Zillow Group</Link>
-          </li>
-          <li>
-            <Link to="/yahoo">Yahoo</Link>
-          </li>
-          <li>
-            <Link to="/modus-create">Modus Create</Link>
-          </li>
-        </ul>
+        <Navbar></Navbar>
 
         <Switch>
-          <Route path="/:id" children={<Child />} />
+          <Route path="/:id" children={<Page />} />
+          <Redirect from="/" to="/accueil" />
         </Switch>
-      </div>
     </Router>
   );
 }

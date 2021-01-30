@@ -1,0 +1,14 @@
+._e-container {
+  padding: 0 50px;
+  width: calc(100vw - 100px);
+  max-width: 1440px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+// @media (max-width: 1000px) {
+//   ._e-container {
+//     background-color: green;
+//   }
+// }
