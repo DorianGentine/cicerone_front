@@ -25,6 +25,10 @@ h6,
     font-family: 'Roboto', sans-serif;
 }
 
+p{
+  margin: 5px 0;
+}
+
 a, a:hover, a:focus {
   text-decoration: none;
 }
@@ -42,4 +46,35 @@ ul {
   padding: 0;
   margin: 0;
   list-style: none;
+}
+
+input{
+  padding: 5px;
+  border: 0;
+  border-radius: 5px;
+  &:focus{
+    outline-width: 0px;
+  }
+}
+
+button{
+  padding: 5px 10px;
+  border: solid 1px $orange;
+  border-radius: 5px;
+  background-color: transparent;
+  color: $orange;
+  transition: .5s;
+  margin: 5px 0;
+  &:hover{
+    background-color: $orange;
+    color: white;
+  }
+  &.red{
+    border-color: red;
+    color: red;
+    &:hover{
+      background-color: red;
+      color: white;
+    }
+  }
 }

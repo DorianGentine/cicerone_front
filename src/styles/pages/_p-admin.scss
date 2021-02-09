@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
-  background-color: lightgray;
+  background-color: $lightgray;
   height: calc(100vh - 100px);
   a{
     color: $black;

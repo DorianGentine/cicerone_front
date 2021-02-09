@@ -14,6 +14,7 @@ export default function ParamsExample() {
         <Navbar></Navbar>
 
         <Switch>
+          <Redirect from="/api" to="/admin" />
           <Route path="/:id" children={<Page />} />
           <Redirect from="/" to="/accueil" />
         </Switch>
