@@ -1,0 +1,6 @@
+._c-beer-type-grid{
+  display: grid;
+  grid-template: auto / repeat(2, 1fr);
+  column-gap: 10px;
+  row-gap: 10px;
+}

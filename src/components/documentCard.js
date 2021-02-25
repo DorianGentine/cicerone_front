@@ -1,85 +1,81 @@
 import React, { Component } from 'react';
 import { Form, Field } from 'react-final-form';
+import card from "../styles/components/_c-document-display.module.scss"
+import myFetch from '../actions/myFetch'
 
 class DocumentCard extends Component {
   constructor(props){
     super(props)
     this.state = {
       edit: false,
-      name: props.name,
     }
   }
     
   render() {
+    const data = this.props.data
+
     const handleEdit = () => {
       this.setState(prevState => ({
         edit: !prevState.edit
       }))
     }
 
-    const myFetch = (url, data, method, callback = ()=>{}) => {
-      const myHeaders = new Headers({ 
-        'content-type': 'application/json',
-        'content-length': JSON.stringify(data).length.toString(), 
-      })
-      fetch(
-        url, 
-        {
-          method: method,
-          headers: myHeaders, 
-          body: JSON.stringify(data)
-        }
-      )
-      .then(r => r.json())
-      .then(body => {
-        console.log('body', body)
-        callback()
-      })
-      .catch(error => {
-        console.error('error', error)
-      })
-    }
-
     const handleDelete = () => {
-      console.log("Deleted", this.props.data)
       myFetch(
-        `http://localhost:4200/api/region/${this.props.data._id}`, 
-        this.props.data,
-        "DELETE"
+        `${this.props.rootURL}/${data._id}`, 
+        data,
+        "DELETE",
+        this.props.loadData
       )
-    }
-
-    const validate = (values) => {
-      console.log('values', values)
     }
 
     const onSubmit = values => {
-      console.log('values', values)
       myFetch(
-        `http://localhost:4200/api/region/${values._id}`, 
+        `${this.props.rootURL}/${values._id}`, 
         values,
         "PUT", 
-        () => this.setState(prevState => ({
-          edit: !prevState.edit,
-          name: values.name,
-        }))
+        () => {
+          this.setState(prevState => ({ edit: !prevState.edit}))
+          this.props.loadData()
+        }
       )
     }
+    
+    const dataToRender = JSON.parse(JSON.stringify(data))
+    delete dataToRender._id
+    delete dataToRender.__v
+    const valuesToRender = []
+    for (const property in dataToRender) {
+      console.log(`${property}: ${dataToRender[property]}`)
+      // valuesToRender.push(dataToRender[property])
+    }
+    
+    const renderInfos = () => valuesToRender.map(
+      (value, index) => {
+        return <p key={index} >{value}</p>
+      }
+    )
 
     if(this.state.edit){
       return (
-        <div className="document-card">
+        <div className={card.document_card}>
           <Form
             onSubmit={onSubmit}
-            validate={validate}
-            initialValues={this.props.data}
+            initialValues={data}
             render={({ handleSubmit, submitting }) => (
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} className="_e-edit-form">
                 <Field
                   name="name"
                   component="input"
                   type="text"
                 />
+                {this.props.rootURL.includes("beer_color") &&
+                  <Field
+                    name="color"
+                    component="input"
+                    type="text"
+                  />
+                }
                 <button type="submit" disabled={submitting}>
                   Éditer
                 </button>
@@ -91,8 +87,9 @@ class DocumentCard extends Component {
       )
     }else{
       return (
-        <div className="document-card">
-          <p>{this.props.data.name}</p>
+        <div className={card.document_card}>
+          <p>{data.name}</p>
+          {renderInfos()}
           <button onClick={handleEdit}>Editer</button>
           <button onClick={handleDelete} className="red">Supprimer</button>
         </div>

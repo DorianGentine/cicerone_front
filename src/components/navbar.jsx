@@ -1,22 +1,16 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import Link from 'next/link'
+import navbar from '../styles/components/_c-navbar.module.scss'
 
-class Navbar extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {test: true};
-  }
-
-  render () {
-
-    return(
-      <div className="_c-navbar">
-        <Link to="/accueil">Accueil</Link>
-        <Link to="/quizz">Quizz</Link>
-        <Link to="/admin">Admin</Link>
+export default function Navbar() {
+  return(
+    <>
+      <div className={navbar.navbar}>
+        <Link href="/">Accueil</Link>
+        <Link href="/quizz">Quizz</Link>
+        <Link href="/admin/region">Admin</Link>
       </div>
-    );
-  }
+      <div className={navbar.navbar_margin}></div>
+    </>
+  );
 };
-
-export default Navbar;
