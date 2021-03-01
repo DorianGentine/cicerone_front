@@ -7,6 +7,7 @@
   padding: 20px;
   background-color: $lightgray;
   height: calc(100vh - 60px);
+  position: fixed;
   a{
     color: $black;
     padding: 20px;
@@ -20,6 +21,7 @@
 }
 
 .admin_body{
+  margin-left: 15%;
   width: calc(100vw - 15%);
   padding: 20px;
 }

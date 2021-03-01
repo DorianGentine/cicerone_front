@@ -39,6 +39,8 @@ img {
 label {
   display: inline-block;
   max-width: 100%;
+  font-size: 12px;
+  color: lightgray;
 }
 
 ul {
@@ -49,7 +51,7 @@ list-style: none;
 
 input{
 padding: 5px;
-border: 0;
+border: 1px solid rgb(204, 204, 204);
 border-radius: 5px;
 &:focus{
   outline-width: 0px;
@@ -63,7 +65,7 @@ border-radius: 5px;
 background-color: transparent;
 color: $orange;
 transition: .5s;
-margin: 5px 0;
+// margin: 5px 0;
 &:hover{
   background-color: $orange;
   color: white;
@@ -76,4 +78,12 @@ margin: 5px 0;
     color: white;
   }
 }
+}
+
+// GRID SPAN
+.span_2{
+  grid-column: span 2;
+}
+.span_3{
+  grid-column: span 3;
 }

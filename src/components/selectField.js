@@ -29,15 +29,29 @@ class SelectField extends Component {
   render(){
     const options = this.state.options
 
+    const customStyles = {
+      input: (provided, state) => ({
+        ...provided,
+        // height: '1em'
+      }),
+      valueContainer: (provided, state) => ({
+        ...provided,
+        fontSize: '14px',
+        padding: '0 8px'
+      }),
+    }
+
     const ReactSelectAdapter = ({ input, ...rest }) => {
       return(
         <Select 
           {...input} 
           {...rest}
+          instanceId={this.props.name}
           getOptionLabel={option => option.name}
-          getOptionValue={option => option._id}
+          getOptionValue={option => option._id || option}
           placeholder={this.props.placeholder}
-          className="select-field"
+          styles={customStyles}
+          className={this.props.className}
         />
       )
     }

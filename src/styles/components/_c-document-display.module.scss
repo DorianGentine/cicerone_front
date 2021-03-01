@@ -14,7 +14,25 @@
   flex-direction: column;
   background-color: $lightgray;
   border-radius: 5px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
   p{
     text-align: center;
+  }
+}
+
+.card_grid{
+  display: grid;
+  grid-template: auto/repeat(3, 1fr);
+  align-items: center;
+  column-gap: 5px;
+  row-gap: 5px;
+  p{
+    text-align: left;
+  }
+  .grid_span{
+    grid-column: span 2;
+  }
+  .grid_span_3{
+    grid-column: span 3;
   }
 }
