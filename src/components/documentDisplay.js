@@ -1,36 +1,29 @@
-import React, { Component } from 'react';
-
 import DocumentCard from "./documentCard"
 
-class DocumentDisplay extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      data: []
+import display from "../styles/components/_c-document-display.module.scss"
+
+function DocumentDisplay(props){
+
+  const renderDataCards = datas => datas.map(
+    (data, index) => {
+      return(
+        <DocumentCard 
+          data={data} 
+          rootURL={`${process.env.NEXT_PUBLIC_API_ROOT_URL}api/${props.admin_id}`} 
+          loadData={props.loadData}
+          key={index}
+        ></DocumentCard>
+      )
     }
-  }
+  )
 
-  componentDidMount(){
-    fetch(`http://localhost:4200/api/region`)
-    .then(r => r.json())
-    .then(body => {
-      this.setState({data: body})
-    })
-    .catch(error => {
-      console.log('error', error)
-    })
-  }
+  const checkData = Array.isArray(props.data) && props.data.length !== 0
 
-  render(){
-
-    const renderDataCards = datas => datas.map((data, index) => <DocumentCard data={data} key={index}></DocumentCard>)
-
-    return (
-      <div className="_c-document-display">
-        {renderDataCards(this.state.data)}
-      </div>
-    );
-  }
+  return (
+    <div className={display.document_display}>
+      {checkData ? renderDataCards(props.data) : "Aucune entrée"}
+    </div>
+  );
 }
 
 export default DocumentDisplay
