@@ -85,21 +85,20 @@ class DocumentCard extends Component {
       }else{
         return(
           <div className={`${card.card_grid} ${card.document_card}`}>
-            <label>Name</label>
-            <p className="span_2">{data.name}</p>
+            <h4 className="span_3">{data.name}</h4>
             <label>Country</label>
             <p className="span_2">{data.country.name}</p>
-            <label>Alcohol title</label>
-            <p>{data.alcoholTitle.min.name}</p>
-            <p>{data.alcoholTitle.max.name}</p>
             <label>Category</label>
-            <p className="span_2">{data.category.name}</p>
+            <p className="span_2">{data.category ? data.category.name : "___"}</p>
+            <label>Alcohol title</label>
+            <p className={!data.alcoholTitle.max ? "span_2" : ""}>{data.alcoholTitle.min.name}</p>
+            {data.alcoholTitle.max && <p>{data.alcoholTitle.max.name}</p>}
             <label>Color</label>
-            <p>{data.color.min.name}</p>
-            <p>{data.color.max.name}</p>
+            <p className={!data.color.max ? "span_2" : ""}>{data.color.min.name}</p>
+            {data.color.max && <p>{data.color.max.name}</p>}
             <label>Bitterness</label>
-            <p>{data.bitterness.min.name}</p>
-            <p>{data.bitterness.max.name}</p>
+            <p className={!data.bitterness.max ? "span_2" : ""}>{data.bitterness.min.name}</p>
+            {data.bitterness.max && <p>{data.bitterness.max.name}</p>}
             <button onClick={handleEdit} className="span_3">Editer</button>
             <button onClick={handleDelete} className="span_3 red">Supprimer</button>
           </div>
