@@ -1,0 +1,8 @@
+.grid{
+  width: 50vw;
+  min-width: 400px;
+  margin: auto;
+  display: grid;
+  grid-template: auto / 1fr;
+  row-gap: 15px;
+}

@@ -30,10 +30,6 @@ class SelectField extends Component {
     const options = this.state.options
 
     const customStyles = {
-      input: (provided, state) => ({
-        ...provided,
-        // height: '1em'
-      }),
       valueContainer: (provided, state) => ({
         ...provided,
         fontSize: '14px',

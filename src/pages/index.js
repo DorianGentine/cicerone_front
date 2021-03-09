@@ -1,6 +1,6 @@
 import Layout from '../components/layout'
 
-function HomePage() {
+export default function HomePage() {
   return (
     <Layout>
       <h1>This is the HOME</h1>
@@ -8,4 +8,3 @@ function HomePage() {
   )
 }
 
-export default HomePage

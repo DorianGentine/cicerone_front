@@ -3,7 +3,6 @@ import Link from 'next/link'
 import Layout from '../../components/layout'
 import admin from '../../styles/pages/_p-admin.module.scss'
 import { useRouter } from 'next/router';
-import myFetch from "../../actions/myFetch"
 
 import DocumentCreation from '../../components/documentCreation'
 import DocumentDisplay from '../../components/documentDisplay'
@@ -46,7 +45,7 @@ export async function getStaticPaths() {
   }
 }
 
-export default function Post(props) {
+export default function Admin(props) {
   const root = "/admin"
 
   const router = useRouter();
