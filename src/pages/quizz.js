@@ -9,7 +9,7 @@ function QuizzPage() {
       <h1>Choisissez votre test:</h1>
 
       <div className={quizzStyle.grid}>
-        <Link href="/quizz/beer_types">
+        <Link href="/quizz/beer_types/1">
           <button>Types de bières</button>
         </Link>
       </div>

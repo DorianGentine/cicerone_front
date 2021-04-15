@@ -19,4 +19,11 @@
   grid-template: auto / repeat(4, 1fr);
   row-gap: 10px;
   column-gap: 10px;
+  margin-bottom: 20px;
+}
+
+.navigation_grid{
+  display: grid;
+  grid-template: auto / repeat(4, 1fr);
+  column-gap: 10px;
 }

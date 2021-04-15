@@ -6,7 +6,6 @@ import quizzStyle from "../../../styles/pages/_p-quizz.module.scss"
 import checkStyle from "../../../styles/components/_c-checkbox.module.scss"
 
 export async function getStaticProps({ params }) {
-  // let response = await fetch(`${process.env.NEXT_PUBLIC_API_ROOT_URL}api/${params.admin_id}`)
   let response = await fetch(`${process.env.NEXT_PUBLIC_API_ROOT_URL}api/quizz`)
   let body
   if(response.ok){
@@ -14,19 +13,6 @@ export async function getStaticProps({ params }) {
   } else {
     console.error(response.error)
   }
-  // const body = {
-  //   content: "Quelle est la région d'origine de la Rouge des Flandres ?",
-  //   answer: "Belgique & France",
-  //   options: [
-  //     "Belgique & France",
-  //     "Grande-Bretagne & Irelande",
-  //     "Ecosse",
-  //     "Irlande",
-  //     "Allemagne, RépTchèque & Autriche",
-  //     "États-Unis",
-  //     "International"
-  //   ]
-  // }
   return {
     props: {
       body: body,
@@ -98,6 +84,12 @@ function QuizzQuestion(props) {
             <h2>{props.body.content}</h2>
             <div className={quizzStyle.option_grid}>
               {renderOptions()}
+            </div>
+            <div className={quizzStyle.navigation_grid}>
+              <button>Précédent</button>
+              <button>Vérifier</button>
+              <div>Réponse</div>
+              <button>Suivant</button>
             </div>
           </form>
         )}
