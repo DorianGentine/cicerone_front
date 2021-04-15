@@ -1,0 +1,22 @@
+.grid{
+  display: grid;
+  grid-template: auto / repeat(3, 1fr);
+  column-gap: 15px;
+  row-gap: 15px;
+}
+
+.question{
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 20px;
+  h2{
+    text-align: center;
+  }
+}
+
+.option_grid{
+  display: grid;
+  grid-template: auto / repeat(4, 1fr);
+  row-gap: 10px;
+  column-gap: 10px;
+}

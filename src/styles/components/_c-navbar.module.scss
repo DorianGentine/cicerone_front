@@ -1,8 +1,11 @@
-._c-navbar{
+@import "../config/_colors";
+
+.navbar{
   position: fixed;
   height: 60px;
-  width: calc(100vw - 100px);
+  width: 100vw;
   top: 0;
+  z-index: 10;
   padding: 0 50px;
   display: flex;
   align-items: center;
@@ -12,4 +15,7 @@
   a{
     margin: 0 10px;
   }
+}
+.navbar_margin{
+  margin-bottom: 60px;
 }

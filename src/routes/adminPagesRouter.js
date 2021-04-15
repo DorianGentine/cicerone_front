@@ -1,13 +1,9 @@
 import { useParams } from "react-router-dom";
 
-// import Admin from "../pages/admin"
+import AdminBody from "../components/adminBody"
 
 export default function AdminPagesRouter() {
   let { admin_id } = useParams();
   
-  return (
-    <div>
-      <h3>ID: {admin_id}</h3>
-    </div>
-  );
+  return <AdminBody admin_id={admin_id} />
 }
