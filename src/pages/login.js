@@ -12,7 +12,6 @@ export default function SignUp(props) {
     authService.login(values)
       .then(() => {
         router.push("/")
-        // router.reload()
       })
   }
 

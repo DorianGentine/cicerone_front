@@ -1,0 +1,42 @@
+/* Customize the label (the container) */
+.checkbox_form {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox_form input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  margin: unset;
+}
+
+/* Create a custom checkbox */
+.check_form {
+  position: relative;
+  border-radius: 5px;
+  border: 2px solid gray;
+  color: gray;
+  padding: 10px;
+  margin: 0 10px 10px 0;
+  font-size: 14px;
+  text-align: center;
+  transition: .5s;
+}
+
+/* On mouse-over, add a grey background color */
+.check_form:hover{
+  border-color: violet;
+}
+
+/* Checkbox is checked */
+.checkbox_form input:checked ~ .check_form {
+  // outline: 4px solid rgba(0,7,72,0.29);
+  box-shadow: 0 0 0 4px rgba(0,7,72,0.29);
+}
